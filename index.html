@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no, email=no, address=no, date=no">
 <title>Yannick — Directeur Régional Nord-Est</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -72,6 +73,8 @@
   .row .k{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
   .row .v{font-size:15px;font-weight:600;color:var(--navy);word-break:break-word}
   .row .grow{flex:1;min-width:0}
+  a.v{display:block;text-decoration:none}
+  a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important}
   .copy{border:0;background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 10px;
       font:600 12px Inter,system-ui,sans-serif;color:var(--cyan2);cursor:pointer}
   .brand{display:flex;align-items:center;justify-content:center;min-height:150px;padding:26px;border-radius:18px;
@@ -131,8 +134,8 @@
 
   <section class="fade" style="animation-delay:.15s">
     <div class="h">Coordonnées</div>
-    <div class="row"><div class="grow"><div class="k">Mobile</div><div class="v" id="vPhone"></div></div><button class="copy" data-copy="phone">Copier</button></div>
-    <div class="row"><div class="grow"><div class="k">E-mail</div><div class="v" id="vMail"></div></div><button class="copy" data-copy="email">Copier</button></div>
+    <div class="row"><div class="grow"><div class="k">Mobile</div><a class="v" id="vPhone"></a></div><button class="copy" data-copy="phone">Copier</button></div>
+    <div class="row"><div class="grow"><div class="k">E-mail</div><a class="v" id="vMail"></a></div><button class="copy" data-copy="email">Copier</button></div>
     <div class="row"><div class="grow"><div class="k">Secteur</div><div class="v" id="vZone"></div></div></div>
   </section>
 
@@ -191,6 +194,8 @@ if (CARD.photo) av.style.backgroundImage = `url("${CARD.photo}")`;
 else av.textContent = (CARD.firstName[0] + (CARD.lastName[0]||"")).toUpperCase();
 
 $("aCall").href = `tel:${telRaw}`;
+$("vPhone").href = `tel:${telRaw}`;
+$("vMail").href = `mailto:${CARD.email}`;
 $("aSms").href  = `sms:${telRaw}`;
 $("aMail").href = `mailto:${CARD.email}`;
 
